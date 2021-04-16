@@ -1,0 +1,128 @@
+﻿<Window x:Class="Traccar_Control_Panel_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Traccar_Control_Panel_WPF"
+        mc:Ignorable="d"
+        Title="Traccar Control Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="controls_groupbox" Header="Controls" Margin="10,25,10.333,0" Height="61" VerticalAlignment="Top"/>
+        <Button x:Name="stop_button" Cursor="Hand" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="98,50,0,0" Click="stop_button_Click"/>
+        <Button x:Name="restart_button" Cursor="Hand" Content="Restart" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="178,50,0,0" Click="restart_button_Click"/>
+        <Button x:Name="refresh_button" Cursor="Hand" Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="258,50,0,0" Click="refresh_button_Click"/>
+        <Button x:Name="start_button" Cursor="Hand" Content="Start" HorizontalAlignment="Left" Margin="18,50,0,0" VerticalAlignment="Top" Width="75" Click="start_button_Click"/>
+        <Menu x:Name="menu_strip" IsMainMenu="True" Height="20" VerticalAlignment="Top" Margin="0,0,0.333,0" AllowDrop="True">
+            <MenuItem x:Name="menu_drop" Header="_File" AllowDrop="True" StaysOpenOnClick="True">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/folder.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+                <MenuItem x:Name="save_menuitem" Header="Save" Command="Save" Click="save_menuitem_Click">
+                    <MenuItem.Icon>
+                        <Image Height="12">
+                            <Image.Source>
+                                <BitmapImage  UriSource="/Resources/save.png" />
+                            </Image.Source>
+                        </Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="save_as_menuitem" Header="Save As" Command="Save" Click="save_as_menuitem_Click">
+                    <MenuItem.Icon>
+                        <Image Height="12">
+                            <Image.Source>
+                                <BitmapImage  UriSource="/Resources/saveas.png" />
+                            </Image.Source>
+                        </Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="about_menuitem" Header="_About" Click="about_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/information.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="email_menuitem" Header="_Email Test" Click="email_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/icons8-important-mail-32.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="email_settings_menuitem" Header="_Email Settings" Click="email_settings_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/icons8-settings-16.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="exit_menuitem" Header="_Exit" Click="exit_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/cancel.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <TextBox x:Name="textbox" Height="23" Margin="338,48,18.333,0" TextWrapping="Wrap" Text="traccar" VerticalAlignment="Top"/>
+        <GroupBox x:Name="traccar_service_groupbox" Header="Traccar Service" Margin="10,91,10.333,0" Height="100" VerticalAlignment="Top">
+            <RichTextBox x:Name="richtextbox_traccar_service" VerticalScrollBarVisibility="Auto" Background="Navy" Foreground="#FFFDFF11" IsInactiveSelectionHighlightEnabled="True" IsReadOnlyCaretVisible="True" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </GroupBox>
+        <GroupBox x:Name="installed_services_groupbox" Header="Installed Services" Margin="10,196,10.333,39.667">
+            <RichTextBox x:Name="richtextbox_installed_services" VerticalScrollBarVisibility="Auto" Background="Navy" Foreground="#FFFDFF11" IsReadOnlyCaretVisible="True" IsInactiveSelectionHighlightEnabled="True" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </GroupBox>
+        <StatusBar Margin="3,0,3.333,2.667" Height="32" VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="lblCursorPosition" />
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2">
+                <ProgressBar x:Name="progressbar" Value="1" Width="90" Height="16" />
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <TextBlock x:Name="status_ready" Text="Ready" />
+            </StatusBarItem>
+            <Separator Grid.Column="5" />
+            <StatusBarItem Grid.Column="6">
+                <TextBlock Text="Traccar Service Installed" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Column="7">
+                <TextBlock x:Name="status_yes_no"  Foreground="Green" Text="-" />
+            </StatusBarItem>
+            <Separator Grid.Column="8" />
+            <StatusBarItem  Grid.Column="9">
+                <TextBlock x:Name="status_T"  Foreground="Black" Text="-" />
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>
