@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Traccar_Control_Panel
@@ -12,13 +8,14 @@ namespace Traccar_Control_Panel
     {
         public static class Logger
         {
-            //private static string LogFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Hex_Traccar\\Logs\\Hex_Traccar_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            //Create file
             private static string LogFile = Application.StartupPath + "\\Logs\\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {
                 try
                 {
+                    //Append text to file and save it
                     File.AppendAllText(LogFile, "[" + DateTime.Now.ToString() + "] : " + txt + "\n");
                 }
                 catch (Exception ex)
@@ -32,6 +29,7 @@ namespace Traccar_Control_Panel
             {
                 try
                 {
+                    //Delete log file
                     File.Delete(LogFile);
                 }
                 catch (Exception ex)

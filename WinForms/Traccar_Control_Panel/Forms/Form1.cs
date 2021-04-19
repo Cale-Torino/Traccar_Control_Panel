@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Traccar_Control_Panel.LoggerClass;
 
@@ -53,6 +47,7 @@ namespace Traccar_Control_Panel
         {
             try
             {
+                //Check that the service is still running
                 string _CheckServiceStatus = ServiceClass.CheckServiceStatus("traccar");
                 if (_CheckServiceStatus =="traccar is Stopped")
                 {
@@ -78,7 +73,7 @@ namespace Traccar_Control_Panel
         {
             try
             {
-                //CreatFolder
+                //Create the logs folder
                 string path = Application.StartupPath;
                 Directory.CreateDirectory(path + "\\Logs");
             }
@@ -92,6 +87,7 @@ namespace Traccar_Control_Panel
         {
             try
             {
+                //Initiate the application
                 CreateFolder();
                 bool _Service = ServiceClass.IsServiceInstalled("traccar");
                 if (_Service == true)
@@ -130,6 +126,7 @@ namespace Traccar_Control_Panel
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Form load
             Ini();
             statusStrip1.Text = "Ready";
             Logger.WriteLine(" ***- APPLICATION STARTED -*** ");
@@ -137,7 +134,7 @@ namespace Traccar_Control_Panel
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //start
+            //Start the service
             toolStripProgressBar1.Value = 50;
             Logger.WriteLine(" *** Start Service Clicked *** ");
             backgroundWorker1.RunWorkerAsync();
@@ -145,7 +142,7 @@ namespace Traccar_Control_Panel
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //stop
+            //Stop the service
             toolStripProgressBar1.Value = 50;
             Logger.WriteLine(" *** Stop Service Clicked *** ");
             backgroundWorker2.RunWorkerAsync();
@@ -153,7 +150,7 @@ namespace Traccar_Control_Panel
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //restart
+            //Restart the service
             toolStripProgressBar1.Value = 50;
             Logger.WriteLine(" *** Restart Service Clicked *** ");
             backgroundWorker3.RunWorkerAsync();
@@ -161,7 +158,7 @@ namespace Traccar_Control_Panel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //refresh all
+            //Refresh all available services
             toolStripProgressBar1.Value = 50;
             RefreshServices();
             richTextBox1.AppendText("[" + DateTime.Now.ToString() + "] : " + "Services Refreshed" + Environment.NewLine);
@@ -169,7 +166,7 @@ namespace Traccar_Control_Panel
         }
         private void Reallyexit()
         {
-            //exit YES/NO
+            //ask if you really want to exit YES/NO
             string _text = "Do you really want to exit the application?";
             string _caption = "Exit Application?";
             var selectedOption = MessageBox.Show(_text, _caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -194,14 +191,14 @@ namespace Traccar_Control_Panel
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //exit
+            //Tool strip menu exit clicked
             Logger.WriteLine(" ***Exit Clicked*** ");
             Reallyexit();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //about
+            //About button clicked
             Logger.WriteLine(" ***About Box Clicked*** ");
             Form f2 = new Form2();
             f2.ShowDialog();
@@ -209,7 +206,7 @@ namespace Traccar_Control_Panel
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //font
+            //Font button clicked. choose font
             Logger.WriteLine(" ***Font Box Clicked*** ");
             if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -222,7 +219,7 @@ namespace Traccar_Control_Panel
         string path = "";
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //save
+            //Save to a file button clicked
             Logger.WriteLine(" ***Save Clicked*** ");
             if (path != "")
             {
@@ -237,7 +234,7 @@ namespace Traccar_Control_Panel
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //save as
+            //Save as file button clicked
             Logger.WriteLine(" ***Save As Clicked*** ");
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -248,6 +245,7 @@ namespace Traccar_Control_Panel
 
         private void copyAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Right click copy all button clicked
             Logger.WriteLine(" ***Copy All Clicked richTextBox1*** ");
             Clipboard.Clear();
             richTextBox1.SelectAll();
@@ -256,6 +254,7 @@ namespace Traccar_Control_Panel
 
         private void copySelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Right click copy selected button clicked
             Logger.WriteLine(" ***Copy Selected Clicked richTextBox1*** ");
             Clipboard.Clear();
             try
@@ -271,6 +270,7 @@ namespace Traccar_Control_Panel
 
         private void cutAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Right click cut all button clicked
             Logger.WriteLine(" ***Cut All Clicked richTextBox1*** ");
             Clipboard.Clear();
             richTextBox1.SelectAll();
@@ -280,6 +280,7 @@ namespace Traccar_Control_Panel
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Right click clear all button clicked
             Logger.WriteLine(" ***Clear All Clicked richTextBox1*** ");
             Clipboard.Clear();
             richTextBox1.SelectAll();
@@ -288,6 +289,7 @@ namespace Traccar_Control_Panel
 
         private void copyAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //Right click copy all button clicked
             Logger.WriteLine(" ***Copy All Clicked richTextBox2*** ");
             Clipboard.Clear();
             richTextBox2.SelectAll();
@@ -296,6 +298,7 @@ namespace Traccar_Control_Panel
 
         private void copySelectedToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //Right click copy selected button clicked
             Logger.WriteLine(" ***Cut All Clicked richTextBox2*** ");
             Clipboard.Clear();
             richTextBox2.SelectAll();
@@ -305,6 +308,7 @@ namespace Traccar_Control_Panel
 
         private void cutAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //Right click cut all button clicked
             Logger.WriteLine(" ***Clear All Clicked richTextBox2*** ");
             Clipboard.Clear();
             richTextBox2.SelectAll();
@@ -313,22 +317,18 @@ namespace Traccar_Control_Panel
 
         private void clearAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //Right click clear all button clicked
             Logger.WriteLine(" ***Clear All Clicked richTextBox2*** ");
             Clipboard.Clear();
             richTextBox2.SelectAll();
             richTextBox2.Clear();
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
-        }
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                //start
+                //Start service background worker
                 string _StartService = ServiceClass.StartService(textBox1.Text, 9000);
                 Invoke((MethodInvoker)(() => toolStripProgressBar1.Value = 100));
                 Invoke((MethodInvoker)(() => richTextBox1.AppendText("[" + DateTime.Now.ToString() + "] : " + _StartService + Environment.NewLine)));
@@ -345,7 +345,7 @@ namespace Traccar_Control_Panel
         {
             try
             {
-                //stop
+                //Stop service background worker
                 string _StopService = ServiceClass.StopService(textBox1.Text, 9000);
                 Invoke((MethodInvoker)(() => toolStripProgressBar1.Value = 100));
                 Invoke((MethodInvoker)(() => richTextBox1.AppendText("[" + DateTime.Now.ToString() + "] : " + _StopService + Environment.NewLine)));
@@ -362,7 +362,7 @@ namespace Traccar_Control_Panel
         {
             try
             {
-                //restart
+                //Restart service background worker
                 string _RestartService = ServiceClass.RestartService(textBox1.Text, 9000);
                 Invoke((MethodInvoker)(() => toolStripProgressBar1.Value = 100));
                 Invoke((MethodInvoker)(() => richTextBox1.AppendText("[" + DateTime.Now.ToString() + "] : " + _RestartService + Environment.NewLine)));
@@ -377,6 +377,7 @@ namespace Traccar_Control_Panel
         private Timer t;
         private void TimerStart()
         {
+            //Timer to check service is running every 15 seconds
             Timer t = new Timer();
             t.Interval = 15000; // 15seconds
             t.Tick += new EventHandler(timer1_Tick);
@@ -384,10 +385,12 @@ namespace Traccar_Control_Panel
         }
         private void TimerStop()
         {
+            //Stop timer
             t.Stop();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //Call this method every time the timer elapses
             CheckServices();
         }
     }
