@@ -27,7 +27,6 @@ namespace Traccar_Control_Panel_WPF
             }
             catch (Exception ex)
             {
-                // ...
                 MessageBox.Show(ex.Message, "Is Service Installed Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
@@ -37,6 +36,7 @@ namespace Traccar_Control_Panel_WPF
 
             try
             {
+                //Check the status of the service
                 //ServiceController[] services = ServiceController.GetServices();
                 ServiceController service = new ServiceController(serviceName);
                 string _SS = service.ServiceName + " is " + service.Status;
@@ -44,7 +44,6 @@ namespace Traccar_Control_Panel_WPF
             }
             catch (Exception ex)
             {
-                // ...
                 MessageBox.Show(ex.Message, "Check Service Status Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "Check Service Status Error";
             }
@@ -54,6 +53,7 @@ namespace Traccar_Control_Panel_WPF
 
             try
             {
+                //Start the service
                 ServiceController service = new ServiceController(serviceName);
                 TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
 
@@ -64,7 +64,6 @@ namespace Traccar_Control_Panel_WPF
             }
             catch (Exception ex)
             {
-                // ...
                 MessageBox.Show(ex.Message, "Start Service Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "Start Service Error";
             }
@@ -74,6 +73,7 @@ namespace Traccar_Control_Panel_WPF
 
             try
             {
+                //Stop the service
                 ServiceController service = new ServiceController(serviceName);
                 TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
 
@@ -84,7 +84,6 @@ namespace Traccar_Control_Panel_WPF
             }
             catch (Exception ex)
             {
-                // ...
                 MessageBox.Show(ex.Message, "Stop Service Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "Stop Service Error";
             }
@@ -94,6 +93,7 @@ namespace Traccar_Control_Panel_WPF
 
             try
             {
+                //Restart the service
                 ServiceController service = new ServiceController(serviceName);
                 int millisec1 = Environment.TickCount;
                 TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
@@ -112,7 +112,6 @@ namespace Traccar_Control_Panel_WPF
             }
             catch (Exception ex)
             {
-                // ...
                 MessageBox.Show(ex.Message, "Restart Service Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "Restart Service Error";
             }

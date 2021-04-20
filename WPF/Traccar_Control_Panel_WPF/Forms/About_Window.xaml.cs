@@ -26,11 +26,13 @@ namespace Traccar_Control_Panel_WPF
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
+            //Open https://tutorials.techrad.co.za
             System.Diagnostics.Process.Start("https://tutorials.techrad.co.za");
         }
 
         private void ok_button_Click(object sender, RoutedEventArgs e)
         {
+            //Close the Window
             Close();
         }
     }

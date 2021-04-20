@@ -12,13 +12,14 @@ namespace Traccar_Control_Panel_WPF
     {
         public static class Logger
         {
-            //private static string LogFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Hex_Traccar\\Logs\\Hex_Traccar_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            //Create the log file
             private static string LogFile = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {
                 try
                 {
+                    //Write to the log file
                     File.AppendAllText(LogFile, "[" + DateTime.Now.ToString() + "] : " + txt + "\n");
                 }
                 catch (Exception ex)
@@ -32,6 +33,7 @@ namespace Traccar_Control_Panel_WPF
             {
                 try
                 {
+                    //delete the log file
                     File.Delete(LogFile);
                 }
                 catch (Exception ex)

@@ -34,6 +34,7 @@ namespace Traccar_Control_Panel_WPF
             Logger.WriteLine(" *** SENT MAIL => normal mail Sent clicked");
             try
             {
+                    //Send a test mail
                     MailMessage mail = new MailMessage();
                     SmtpClient SmtpServer = new SmtpClient(EmailVars._SmtpServert);//smtp.techrad.co.za
 
@@ -62,6 +63,7 @@ namespace Traccar_Control_Panel_WPF
             Logger.WriteLine(" *** SENT MAIL => Attachment mail sent clicked");
             try
             {
+                //Send a test mail with an attachment
                 var smtpClient = new SmtpClient(EmailVars._SmtpServert)
                 {
                     Port = 587,
@@ -95,6 +97,7 @@ namespace Traccar_Control_Panel_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Get variables
             textbox_smtp.Text = EmailVars._SmtpServert;
             textbox_from.Text = EmailVars._mailFrom;
             textbox_to.Text = EmailVars._mailTo;
@@ -106,6 +109,7 @@ namespace Traccar_Control_Panel_WPF
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //Set variables
             textbox_smtp.Text = EmailVars._SmtpServert;
             textbox_from.Text = EmailVars._mailFrom;
             textbox_to.Text = EmailVars._mailTo;

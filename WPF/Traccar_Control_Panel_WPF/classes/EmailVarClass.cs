@@ -10,6 +10,7 @@ namespace Traccar_Control_Panel_WPF
     {
         public static class EmailVars
         {
+            //Email variables/user details
             private static string smtpServert = "smtp.address.co.za";
             private static string mailFrom = "name@address.co.za";
             private static string mailTo = "name@gmail.com";
