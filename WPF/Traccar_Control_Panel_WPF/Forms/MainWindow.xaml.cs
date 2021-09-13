@@ -441,5 +441,14 @@ namespace Traccar_Control_Panel_WPF
             Email_Settings_Window w1 = new Email_Settings_Window();
             w1.ShowDialog();
         }
+
+        private void traccarinfo_menuitem_Click(object sender, RoutedEventArgs e)
+        {
+            Logger.WriteLine(" *** TRACCAR INFO => traccarinfo_menuitem_Click clicked");
+            //Info Window
+            Logger.WriteLine(" *** Traccar Info Window Clicked *** ");
+            Info_Window w = new Info_Window();
+            w.ShowDialog();
+        }
     }
 }

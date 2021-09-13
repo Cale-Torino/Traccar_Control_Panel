@@ -37,6 +37,7 @@
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.traccarInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.traccarInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,7 +84,6 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Gainsboro;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -150,6 +149,14 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // traccarInfoToolStripMenuItem
+            // 
+            this.traccarInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("traccarInfoToolStripMenuItem.Image")));
+            this.traccarInfoToolStripMenuItem.Name = "traccarInfoToolStripMenuItem";
+            this.traccarInfoToolStripMenuItem.Size = new System.Drawing.Size(142, 29);
+            this.traccarInfoToolStripMenuItem.Text = "Traccar Info";
+            this.traccarInfoToolStripMenuItem.Click += new System.EventHandler(this.traccarInfoToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -444,13 +451,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // traccarInfoToolStripMenuItem
-            // 
-            this.traccarInfoToolStripMenuItem.Name = "traccarInfoToolStripMenuItem";
-            this.traccarInfoToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
-            this.traccarInfoToolStripMenuItem.Text = "Traccar Info";
-            this.traccarInfoToolStripMenuItem.Click += new System.EventHandler(this.traccarInfoToolStripMenuItem_Click);
             // 
             // MainForm
             // 

@@ -79,6 +79,15 @@
                     </Image>
                 </MenuItem.Icon>
             </MenuItem>
+            <MenuItem x:Name="traccarinfo_menuitem" Header="_Traccar Info" Click="traccarinfo_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/32.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
         </Menu>
         <TextBox x:Name="textbox" Height="23" Margin="338,48,18.333,0" TextWrapping="Wrap" Text="traccar" VerticalAlignment="Top"/>
         <GroupBox x:Name="traccar_service_groupbox" Header="Traccar Service" Margin="10,91,10.333,0" Height="100" VerticalAlignment="Top">
