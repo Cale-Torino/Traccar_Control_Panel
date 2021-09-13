@@ -8,9 +8,9 @@ using static Traccar_Control_Panel.LoggerClass;
 
 namespace Traccar_Control_Panel
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -124,7 +124,7 @@ namespace Traccar_Control_Panel
                 return;
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             //Form load
             Ini();
@@ -200,8 +200,8 @@ namespace Traccar_Control_Panel
         {
             //About button clicked
             Logger.WriteLine(" ***About Box Clicked*** ");
-            Form f2 = new Form2();
-            f2.ShowDialog();
+            Form f = new AboutForm();
+            f.ShowDialog();
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,6 +392,14 @@ namespace Traccar_Control_Panel
         {
             //Call this method every time the timer elapses
             CheckServices();
+        }
+
+        private void traccarInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Info Form button clicked
+            Logger.WriteLine(" ***Info Form Clicked*** ");
+            Form f = new InfoForm();
+            f.ShowDialog();
         }
     }
 }

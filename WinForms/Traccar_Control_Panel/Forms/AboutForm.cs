@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Traccar_Control_Panel
 {
-    public partial class Form2 : Form
+    public partial class AboutForm : Form
     {
-        public Form2()
+        public AboutForm()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace Traccar_Control_Panel
             System.Diagnostics.Process.Start("https://tutorials.techrad.co.za/");
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void AboutForm_Load(object sender, EventArgs e)
         {
 
         }

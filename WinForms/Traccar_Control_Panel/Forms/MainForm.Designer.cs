@@ -1,6 +1,6 @@
 ﻿namespace Traccar_Control_Panel
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +38,8 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,6 +47,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -52,42 +59,39 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copySelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cutAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.copySelectedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cutAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.traccarInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Gainsboro;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.fontToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.traccarInfoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 33);
@@ -164,6 +168,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controls";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(145, 64);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(621, 26);
+            this.textBox2.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Service Running :";
             // 
             // textBox1
             // 
@@ -245,8 +267,52 @@
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyAllToolStripMenuItem,
+            this.copySelectedToolStripMenuItem,
+            this.cutAllToolStripMenuItem,
+            this.clearAllToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 132);
+            // 
+            // copyAllToolStripMenuItem
+            // 
+            this.copyAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyAllToolStripMenuItem.Image")));
+            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
+            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
+            this.copyAllToolStripMenuItem.Text = "&Copy All";
+            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
+            // 
+            // copySelectedToolStripMenuItem
+            // 
+            this.copySelectedToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copySelectedToolStripMenuItem.Image")));
+            this.copySelectedToolStripMenuItem.Name = "copySelectedToolStripMenuItem";
+            this.copySelectedToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
+            this.copySelectedToolStripMenuItem.Text = "&Copy Selected";
+            this.copySelectedToolStripMenuItem.Click += new System.EventHandler(this.copySelectedToolStripMenuItem_Click);
+            // 
+            // cutAllToolStripMenuItem
+            // 
+            this.cutAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutAllToolStripMenuItem.Image")));
+            this.cutAllToolStripMenuItem.Name = "cutAllToolStripMenuItem";
+            this.cutAllToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
+            this.cutAllToolStripMenuItem.Text = "&Cut All";
+            this.cutAllToolStripMenuItem.Click += new System.EventHandler(this.cutAllToolStripMenuItem_Click);
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearAllToolStripMenuItem.Image")));
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
+            this.clearAllToolStripMenuItem.Text = "&Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Gainsboro;
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1,
@@ -310,59 +376,6 @@
             this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Text = "";
             // 
-            // fontDialog1
-            // 
-            this.fontDialog1.ShowApply = true;
-            this.fontDialog1.ShowColor = true;
-            this.fontDialog1.ShowHelp = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyAllToolStripMenuItem,
-            this.copySelectedToolStripMenuItem,
-            this.cutAllToolStripMenuItem,
-            this.clearAllToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 132);
-            // 
-            // copyAllToolStripMenuItem
-            // 
-            this.copyAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyAllToolStripMenuItem.Image")));
-            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
-            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(248, 32);
-            this.copyAllToolStripMenuItem.Text = "&Copy All";
-            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
-            // 
-            // copySelectedToolStripMenuItem
-            // 
-            this.copySelectedToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copySelectedToolStripMenuItem.Image")));
-            this.copySelectedToolStripMenuItem.Name = "copySelectedToolStripMenuItem";
-            this.copySelectedToolStripMenuItem.Size = new System.Drawing.Size(248, 32);
-            this.copySelectedToolStripMenuItem.Text = "&Copy Selected";
-            this.copySelectedToolStripMenuItem.Click += new System.EventHandler(this.copySelectedToolStripMenuItem_Click);
-            // 
-            // cutAllToolStripMenuItem
-            // 
-            this.cutAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutAllToolStripMenuItem.Image")));
-            this.cutAllToolStripMenuItem.Name = "cutAllToolStripMenuItem";
-            this.cutAllToolStripMenuItem.Size = new System.Drawing.Size(248, 32);
-            this.cutAllToolStripMenuItem.Text = "&Cut All";
-            this.cutAllToolStripMenuItem.Click += new System.EventHandler(this.cutAllToolStripMenuItem_Click);
-            // 
-            // clearAllToolStripMenuItem
-            // 
-            this.clearAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearAllToolStripMenuItem.Image")));
-            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(248, 32);
-            this.clearAllToolStripMenuItem.Text = "&Clear All";
-            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -378,7 +391,7 @@
             // 
             this.copyAllToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("copyAllToolStripMenuItem1.Image")));
             this.copyAllToolStripMenuItem1.Name = "copyAllToolStripMenuItem1";
-            this.copyAllToolStripMenuItem1.Size = new System.Drawing.Size(248, 32);
+            this.copyAllToolStripMenuItem1.Size = new System.Drawing.Size(205, 32);
             this.copyAllToolStripMenuItem1.Text = "&Copy All";
             this.copyAllToolStripMenuItem1.Click += new System.EventHandler(this.copyAllToolStripMenuItem1_Click);
             // 
@@ -386,7 +399,7 @@
             // 
             this.copySelectedToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("copySelectedToolStripMenuItem1.Image")));
             this.copySelectedToolStripMenuItem1.Name = "copySelectedToolStripMenuItem1";
-            this.copySelectedToolStripMenuItem1.Size = new System.Drawing.Size(248, 32);
+            this.copySelectedToolStripMenuItem1.Size = new System.Drawing.Size(205, 32);
             this.copySelectedToolStripMenuItem1.Text = "&Copy Selected";
             this.copySelectedToolStripMenuItem1.Click += new System.EventHandler(this.copySelectedToolStripMenuItem1_Click);
             // 
@@ -394,7 +407,7 @@
             // 
             this.cutAllToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("cutAllToolStripMenuItem1.Image")));
             this.cutAllToolStripMenuItem1.Name = "cutAllToolStripMenuItem1";
-            this.cutAllToolStripMenuItem1.Size = new System.Drawing.Size(248, 32);
+            this.cutAllToolStripMenuItem1.Size = new System.Drawing.Size(205, 32);
             this.cutAllToolStripMenuItem1.Text = "&Cut All";
             this.cutAllToolStripMenuItem1.Click += new System.EventHandler(this.cutAllToolStripMenuItem1_Click);
             // 
@@ -402,27 +415,19 @@
             // 
             this.clearAllToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("clearAllToolStripMenuItem1.Image")));
             this.clearAllToolStripMenuItem1.Name = "clearAllToolStripMenuItem1";
-            this.clearAllToolStripMenuItem1.Size = new System.Drawing.Size(248, 32);
+            this.clearAllToolStripMenuItem1.Size = new System.Drawing.Size(205, 32);
             this.clearAllToolStripMenuItem1.Text = "&Clear All";
             this.clearAllToolStripMenuItem1.Click += new System.EventHandler(this.clearAllToolStripMenuItem1_Click);
             // 
-            // label1
+            // fontDialog1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Service Running :";
+            this.fontDialog1.ShowApply = true;
+            this.fontDialog1.ShowColor = true;
+            this.fontDialog1.ShowHelp = true;
             // 
-            // textBox2
+            // openFileDialog1
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(145, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(621, 26);
-            this.textBox2.TabIndex = 11;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // backgroundWorker1
             // 
@@ -440,7 +445,14 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // traccarInfoToolStripMenuItem
+            // 
+            this.traccarInfoToolStripMenuItem.Name = "traccarInfoToolStripMenuItem";
+            this.traccarInfoToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
+            this.traccarInfoToolStripMenuItem.Text = "Traccar Info";
+            this.traccarInfoToolStripMenuItem.Click += new System.EventHandler(this.traccarInfoToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -453,19 +465,19 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(822, 694);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Traccar Control Panel";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -515,6 +527,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem traccarInfoToolStripMenuItem;
     }
 }
 
