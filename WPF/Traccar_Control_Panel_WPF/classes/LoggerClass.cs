@@ -13,7 +13,7 @@ namespace Traccar_Control_Panel_WPF
         public static class Logger
         {
             //Create the log file
-            private static string LogFile = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            private static string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"\Logs\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {

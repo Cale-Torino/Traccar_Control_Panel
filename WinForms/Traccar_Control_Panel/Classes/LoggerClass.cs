@@ -9,7 +9,7 @@ namespace Traccar_Control_Panel
         public static class Logger
         {
             //Create file
-            private static string LogFile = Application.StartupPath + "\\Logs\\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            private static string LogFile = Application.StartupPath + @"\Logs\Traccar_Control_Panel_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {

@@ -1,23 +1,13 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using static Traccar_Control_Panel_WPF.EmailVarClass;
 using static Traccar_Control_Panel_WPF.LoggerClass;
@@ -305,7 +295,7 @@ namespace Traccar_Control_Panel_WPF
             {
                 //CreatFolder
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                Directory.CreateDirectory(path + "\\Logs");
+                Directory.CreateDirectory(path + @"\Logs");
             }
             catch (Exception ex)
             {

@@ -16,5 +16,10 @@ namespace Traccar_Control_Panel
         {
             InitializeComponent();
         }
+
+        private void InfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

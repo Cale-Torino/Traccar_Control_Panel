@@ -75,7 +75,7 @@ namespace Traccar_Control_Panel
             {
                 //Create the logs folder
                 string path = Application.StartupPath;
-                Directory.CreateDirectory(path + "\\Logs");
+                Directory.CreateDirectory(path + @"\Logs");
             }
             catch (Exception ex)
             {
@@ -378,8 +378,10 @@ namespace Traccar_Control_Panel
         private void TimerStart()
         {
             //Timer to check service is running every 15 seconds
-            Timer t = new Timer();
-            t.Interval = 15000; // 15seconds
+            Timer t = new Timer
+            {
+                Interval = 15000 // 15seconds
+            };
             t.Tick += new EventHandler(timer1_Tick);
             t.Start();
         }

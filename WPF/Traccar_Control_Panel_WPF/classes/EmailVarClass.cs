@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Traccar_Control_Panel_WPF
+﻿namespace Traccar_Control_Panel_WPF
 {
     class EmailVarClass
     {

@@ -53,6 +53,7 @@ namespace Traccar_Control_Panel
             this.Name = "InfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InfoForm";
+            this.Load += new System.EventHandler(this.InfoForm_Load);
             this.ResumeLayout(false);
 
         }
