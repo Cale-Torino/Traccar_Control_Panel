@@ -309,6 +309,7 @@ namespace Traccar_Control_Panel_WPF
             {
                 CreateFolder();
                 bool _Service = ServiceClass.IsServiceInstalled("traccar");
+                //bool _Service = false;
                 if (_Service == false)
                 {
                     menu_strip.IsEnabled = true;

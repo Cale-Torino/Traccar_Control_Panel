@@ -90,6 +90,7 @@ namespace Traccar_Control_Panel
                 //Initiate the application
                 CreateFolder();
                 bool _Service = ServiceClass.IsServiceInstalled("traccar");
+                //bool _Service = true;
                 if (_Service == true)
                 {
                     menuStrip1.Enabled = true;
